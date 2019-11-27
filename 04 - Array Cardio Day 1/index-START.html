@@ -103,14 +103,14 @@
 
     const inventors1 = inventors.filter(i => i.year >= 1500 && i.year < 1600);
 
-    console.table(inventors1)
+    // console.table(inventors1)
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
 
     const fullNames = inventors.map(i => i.first + ' ' + i.last);
 
-    console.table(fullNames)
+    // console.table(fullNames)
 
 
     // Array.prototype.sort()
@@ -118,14 +118,14 @@
 
     const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
 
-    console.table(ordered)
+    // console.table(ordered)
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
 
     const livedYears = inventors.reduce((total, inventor) => total + (inventor.passed - inventor.year), 0);
 
-    console.log(livedYears);
+    // console.log(livedYears);
 
 
 
@@ -144,7 +144,7 @@
 
     });
 
-    console.table(orderByYears);
+    // console.table(orderByYears);
     
 
 
@@ -155,11 +155,38 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    const alpha = people.sort((a,b)=>{
+
+      if(a.split(',')[0]>b.split(',')[0]){
+        return 1;
+      }else{
+        return -1;
+      }
+
+    });
+
+    // console.table(alpha);
+    
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car',
       'truck'
     ];
+
+
+    const sumup = data.reduce((nameCounter,name)=>{
+
+      nameCounter[name] = (nameCounter[name] || 0) + 1;
+
+      return nameCounter;
+
+    },{});
+
+
+    console.table(sumup);
+
+
   </script>
 </body>
 
